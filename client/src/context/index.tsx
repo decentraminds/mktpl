@@ -6,7 +6,7 @@ export const User = React.createContext({
     isLogged: false,
     isBurner: false,
     isWeb3Capable: false,
-    isLoading: false,
+    // isLoading: false,
     account: '',
     wallet: null,
     web3: null as any,
@@ -26,7 +26,7 @@ export const User = React.createContext({
     airdropOceanTokens: () => {
         /* empty */
     },
-    message: ''
+    // message: ''
 })
 
 export const Market = React.createContext({

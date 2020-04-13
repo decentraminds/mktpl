@@ -3,16 +3,20 @@ import ReactDOM from 'react-dom'
 import UserProvider from './context/UserProvider'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+import store from "./store";
 require('react-hot-loader/patch')
 
 const root = document.getElementById('root')
 
 ReactDOM.render(
     <AppContainer>
-        <UserProvider>
-            <App />
-        </UserProvider>
+        <Provider store={store}>
+            <UserProvider>
+                <App />
+            </UserProvider>
+        </Provider>
     </AppContainer>,
     root
 )
@@ -40,9 +44,11 @@ if ((module as any).hot) {
         const NextApp = require('./App').default;
         ReactDOM.render(
             <AppContainer>
-                <UserProvider>
-                    <NextApp />
-                </UserProvider>
+                <Provider store={store}>
+                    <UserProvider>
+                        <NextApp />
+                    </UserProvider>
+                </Provider>
             </AppContainer>,
             root
         )
